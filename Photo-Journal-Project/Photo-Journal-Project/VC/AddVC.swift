@@ -21,8 +21,8 @@ present(imagePickerViewController, animated: true, completion: nil)
     private func setUpImagePicker() {
          imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
-         
      }
+    
     override func viewDidLoad() {
     super.viewDidLoad()
         userText.delegate = self
@@ -37,7 +37,8 @@ present(imagePickerViewController, animated: true, completion: nil)
         let photoData = Photo(userPost: userText.text, date: date, image: imageData)
                     try?
         ImagePersistence.manager.saveImage(info: photoData)
-        print(photoData)
+        dismiss(animated: true, completion: nil)
+        
                 }
     func buttonCheckStatus(){
         if !userText.text.isEmpty && userImage.image != nil{
@@ -46,6 +47,13 @@ present(imagePickerViewController, animated: true, completion: nil)
             saveButtonOut.isEnabled = false
                }
     }
+    @IBAction func cameraAction(_ sender: UIBarButtonItem) {
+        imagePickerViewController.sourceType = .camera
+        imagePickerViewController.allowsEditing = true
+        imagePickerViewController.delegate = self
+        present(imagePickerViewController, animated: true)
+        }
+
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -60,9 +68,11 @@ extension AddVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate
         dismiss(animated: true)
     }
 }
+
         
 extension AddVC: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
     buttonCheckStatus()
     }
 }
+

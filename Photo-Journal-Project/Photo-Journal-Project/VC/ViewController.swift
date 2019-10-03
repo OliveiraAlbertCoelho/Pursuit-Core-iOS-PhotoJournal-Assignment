@@ -23,6 +23,10 @@ class ViewController: UIViewController {
         photoCollection.dataSource = self
        loadUserData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadUserData()
+    }
   private func loadUserData(){
         do {
             photos = try ImagePersistence.manager.getImage()

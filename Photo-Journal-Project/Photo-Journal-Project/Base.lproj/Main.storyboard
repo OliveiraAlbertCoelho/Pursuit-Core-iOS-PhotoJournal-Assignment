@@ -35,6 +35,10 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZQw-Oe-rYO">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="189.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="189.5" id="NyR-Jc-1F5"/>
+                                                        <constraint firstAttribute="width" constant="414" id="lpt-zb-ufK"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcE-ra-aK8">
                                                     <rect key="frame" x="0.0" y="205.5" width="414" height="24"/>
@@ -61,11 +65,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="jcE-ra-aK8" secondAttribute="trailing" id="NfI-xh-cHr"/>
                                                 <constraint firstItem="kqk-Rz-323" firstAttribute="top" secondItem="jcE-ra-aK8" secondAttribute="bottom" constant="16" id="QTV-bh-5wo"/>
+                                                <constraint firstAttribute="bottom" secondItem="kqk-Rz-323" secondAttribute="bottom" id="UPC-vH-rVZ"/>
                                                 <constraint firstItem="ZQw-Oe-rYO" firstAttribute="leading" secondItem="evj-j0-8f3" secondAttribute="leading" id="UyJ-FC-KXZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZQw-Oe-rYO" secondAttribute="trailing" id="WIR-ho-1wH"/>
                                                 <constraint firstItem="jcE-ra-aK8" firstAttribute="leading" secondItem="evj-j0-8f3" secondAttribute="leading" id="Z7m-ai-ZOm"/>
                                                 <constraint firstAttribute="trailing" secondItem="kqk-Rz-323" secondAttribute="trailing" id="a0k-c3-vpD"/>
-                                                <constraint firstAttribute="bottom" secondItem="kqk-Rz-323" secondAttribute="bottom" id="ce5-Dw-bVE"/>
                                                 <constraint firstItem="kqk-Rz-323" firstAttribute="leading" secondItem="evj-j0-8f3" secondAttribute="leading" id="eTM-Yj-fpk"/>
                                                 <constraint firstItem="ZQw-Oe-rYO" firstAttribute="top" secondItem="evj-j0-8f3" secondAttribute="top" id="mNX-mw-XEc"/>
                                                 <constraint firstItem="jcE-ra-aK8" firstAttribute="top" secondItem="ZQw-Oe-rYO" secondAttribute="bottom" constant="16" id="pye-h7-6bD"/>
@@ -81,9 +85,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mnD-hQ-J7B">
-                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnD-hQ-J7B">
+                                <rect key="frame" x="0.0" y="764" width="414" height="49"/>
                                 <items>
                                     <barButtonItem width="185" style="plain" systemItem="fixedSpace" id="Vfx-Fe-afT"/>
                                     <barButtonItem systemItem="add" id="kf6-kA-3xf">
@@ -97,14 +100,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="mnD-hQ-J7B" firstAttribute="trailing" secondItem="KFX-TV-7Sx" secondAttribute="trailing" id="6dz-vP-gCY"/>
                             <constraint firstItem="KFX-TV-7Sx" firstAttribute="bottom" secondItem="8hD-Tc-4JG" secondAttribute="bottom" id="PMf-WD-t09"/>
                             <constraint firstItem="8hD-Tc-4JG" firstAttribute="top" secondItem="KFX-TV-7Sx" secondAttribute="top" id="SkI-n1-14z"/>
                             <constraint firstItem="8hD-Tc-4JG" firstAttribute="leading" secondItem="KFX-TV-7Sx" secondAttribute="leading" id="csd-p0-hPY"/>
+                            <constraint firstItem="mnD-hQ-J7B" firstAttribute="leading" secondItem="KFX-TV-7Sx" secondAttribute="leading" id="gXI-SY-rYN"/>
+                            <constraint firstItem="mnD-hQ-J7B" firstAttribute="bottom" secondItem="KFX-TV-7Sx" secondAttribute="bottom" id="jms-Ft-hLr"/>
                             <constraint firstItem="KFX-TV-7Sx" firstAttribute="trailing" secondItem="8hD-Tc-4JG" secondAttribute="trailing" id="trF-Tr-y2d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KFX-TV-7Sx"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="p3U-ft-mFf"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="photoCollection" destination="8hD-Tc-4JG" id="28r-ae-Wmu"/>
@@ -112,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fai-6V-4G6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.768115942029" y="385.71428571428572"/>
+            <point key="canvasLocation" x="1120" y="406"/>
         </scene>
         <!--AddVC-->
         <scene sceneID="Bnl-LJ-GBR">
@@ -154,13 +161,17 @@
                                 <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="Okx-j5-qEV">
+                                    <barButtonItem title="Photo Library" id="Okx-j5-qEV">
                                         <connections>
                                             <action selector="libraryAction:" destination="cNm-6z-Gxb" id="P0I-gj-qEF"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="287" style="plain" systemItem="fixedSpace" id="AxZ-u1-KL6"/>
-                                    <barButtonItem title="Item" id="rxp-sp-hf1"/>
+                                    <barButtonItem systemItem="camera" id="rxp-sp-hf1">
+                                        <connections>
+                                            <action selector="cameraAction:" destination="cNm-6z-Gxb" id="SqP-sV-geM"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -178,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYC-3w-lE4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.768115942029" y="1125.6696428571429"/>
+            <point key="canvasLocation" x="1119" y="1174"/>
         </scene>
     </scenes>
 </document>
