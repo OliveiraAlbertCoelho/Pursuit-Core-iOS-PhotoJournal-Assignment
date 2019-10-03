@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		50033E962346590D004AE71B /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E952346590D004AE71B /* PhotoModel.swift */; };
+		50033E9823465D7F004AE71B /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9723465D7F004AE71B /* PersistenceHelper.swift */; };
+		50033E9A23465DC8004AE71B /* ImagePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9923465DC8004AE71B /* ImagePersistence.swift */; };
+		50033E9C23468919004AE71B /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9B23468919004AE71B /* AddVC.swift */; };
 		50B57E79234655B100A88E65 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B57E78234655B100A88E65 /* PhotoViewCell.swift */; };
 		50FFB48E23465342008035F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFB48D23465342008035F2 /* AppDelegate.swift */; };
 		50FFB49023465342008035F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFB48F23465342008035F2 /* SceneDelegate.swift */; };
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		50033E952346590D004AE71B /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		50033E9723465D7F004AE71B /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
+		50033E9923465DC8004AE71B /* ImagePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePersistence.swift; sourceTree = "<group>"; };
+		50033E9B23468919004AE71B /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		50B57E78234655B100A88E65 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		50FFB48A23465342008035F2 /* Photo-Journal-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo-Journal-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FFB48D23465342008035F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 		50FFB4B023465386008035F2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				50033E9723465D7F004AE71B /* PersistenceHelper.swift */,
+				50033E9923465DC8004AE71B /* ImagePersistence.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				50FFB49123465342008035F2 /* ViewController.swift */,
+				50033E9B23468919004AE71B /* AddVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -254,7 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50033E9C23468919004AE71B /* AddVC.swift in Sources */,
+				50033E9A23465DC8004AE71B /* ImagePersistence.swift in Sources */,
 				50FFB49223465342008035F2 /* ViewController.swift in Sources */,
+				50033E9823465D7F004AE71B /* PersistenceHelper.swift in Sources */,
 				50FFB48E23465342008035F2 /* AppDelegate.swift in Sources */,
 				50FFB49023465342008035F2 /* SceneDelegate.swift in Sources */,
 				50033E962346590D004AE71B /* PhotoModel.swift in Sources */,

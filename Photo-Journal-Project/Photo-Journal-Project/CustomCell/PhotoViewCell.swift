@@ -10,12 +10,10 @@ import UIKit
 
 class PhotoViewCell: UICollectionViewCell {
     @IBOutlet weak var photoCell: UIImageView!
-    
     @IBOutlet weak var dateText: UILabel!
     @IBOutlet weak var labelName: UILabel!
-    
-    
     @IBOutlet weak var buttonOut: UIButton!
     @IBAction func buttonAct(_ sender: UIButton) {
+    
     }
 }

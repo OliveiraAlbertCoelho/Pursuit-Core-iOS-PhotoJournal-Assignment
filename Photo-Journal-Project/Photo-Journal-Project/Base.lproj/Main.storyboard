@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7De-N3-q12">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="Lnm-F7-ncV">
             <objects>
                 <viewController id="7De-N3-q12" customClass="ViewController" customModule="Photo_Journal_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GiX-Uj-qJS" customClass="PhotoViewCell" customModule="Photo_Journal_Project" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="GiX-Uj-qJS" customClass="PhotoViewCell" customModule="Photo_Journal_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="evj-j0-8f3">
@@ -81,12 +81,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="uYY-es-Cov">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mnD-hQ-J7B">
+                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items/>
-                            </tabBar>
+                                <items>
+                                    <barButtonItem width="185" style="plain" systemItem="fixedSpace" id="Vfx-Fe-afT"/>
+                                    <barButtonItem systemItem="add" id="kf6-kA-3xf">
+                                        <connections>
+                                            <segue destination="cNm-6z-Gxb" kind="show" id="WDT-uc-FRg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="fixedSpace" id="nlB-QR-um7"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -97,16 +104,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KFX-TV-7Sx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="JND-Kx-VKJ"/>
-                    <toolbarItems>
-                        <barButtonItem width="163" style="plain" systemItem="fixedSpace" id="I4b-PM-5E4"/>
-                        <barButtonItem title="ADD" id="zCe-jo-zhK">
-                            <connections>
-                                <segue destination="cNm-6z-Gxb" kind="show" id="Hy5-Yd-CRq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="dql-iu-0hz"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="photoCollection" destination="8hD-Tc-4JG" id="28r-ae-Wmu"/>
@@ -116,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="1063.768115942029" y="385.71428571428572"/>
         </scene>
-        <!--View Controller-->
+        <!--AddVC-->
         <scene sceneID="Bnl-LJ-GBR">
             <objects>
-                <viewController id="cNm-6z-Gxb" sceneMemberID="viewController">
+                <viewController id="cNm-6z-Gxb" customClass="AddVC" customModule="Photo_Journal_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UTX-is-amW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,45 +126,59 @@
                                 <rect key="frame" x="0.0" y="44" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="cNm-6z-Gxb" eventType="touchUpInside" id="uXH-M5-DMM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-1M-wdj">
                                 <rect key="frame" x="334" y="44" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="cNm-6z-Gxb" eventType="touchUpInside" id="azT-uo-Xa1"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enD-5f-Kgs">
-                                <rect key="frame" x="0.0" y="300" width="414" height="423"/>
+                                <rect key="frame" x="0.0" y="387" width="414" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yB-H6-jWa">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items/>
-                            </tabBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aaz-uw-hWA">
-                                <rect key="frame" x="0.0" y="97" width="414" height="205"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOe-lz-OHM">
+                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="Okx-j5-qEV">
+                                        <connections>
+                                            <action selector="libraryAction:" destination="cNm-6z-Gxb" id="P0I-gj-qEF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="287" style="plain" systemItem="fixedSpace" id="AxZ-u1-KL6"/>
+                                    <barButtonItem title="Item" id="rxp-sp-hf1"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="V4S-eN-svX"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Photo Library" id="9Oz-JI-HBF"/>
-                        <barButtonItem width="288" style="plain" systemItem="fixedSpace" id="U0I-Vf-vXo"/>
-                        <barButtonItem title="Item" systemItem="camera" id="SKC-wm-gXY"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="fjC-4z-X0P"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="saveButtonOut" destination="EUd-1M-wdj" id="cHQ-lQ-wXd"/>
+                        <outlet property="userImage" destination="enD-5f-Kgs" id="ctS-km-rUT"/>
+                        <outlet property="userText" destination="Aaz-uw-hWA" id="vBk-jM-O0B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYC-3w-lE4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059.4202898550725" y="1044.6428571428571"/>
+            <point key="canvasLocation" x="1063.768115942029" y="1125.6696428571429"/>
         </scene>
     </scenes>
 </document>

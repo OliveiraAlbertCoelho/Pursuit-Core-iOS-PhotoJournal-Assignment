@@ -9,8 +9,7 @@
 import Foundation
 
 struct Photo: Codable {
-    let name: String
-    let id: Int
-    let date: Date
+    let userPost: String
+    let date: String
     let image: Data
 }
