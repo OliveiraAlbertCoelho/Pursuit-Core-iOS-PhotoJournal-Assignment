@@ -9,7 +9,6 @@
 import UIKit
 
 class AddVC: UIViewController {
-    
     @IBOutlet weak var saveButtonOut: UIButton!
     @IBOutlet weak var userText: UITextView!
     @IBOutlet weak var userImage: UIImageView!
@@ -33,12 +32,12 @@ present(imagePickerViewController, animated: true, completion: nil)
     @IBAction func saveButton(_ sender: UIButton) {
            guard let imageData = self.userImage.image?.jpegData(compressionQuality: 0.5)
                         else {return}
-        let date = Date.init().description
+        let date = Date().description
         let photoData = Photo(userPost: userText.text, date: date, image: imageData)
                     try?
         ImagePersistence.manager.saveImage(info: photoData)
         dismiss(animated: true, completion: nil)
-        
+      
                 }
     func buttonCheckStatus(){
         if !userText.text.isEmpty && userImage.image != nil{

@@ -11,6 +11,8 @@
 		50033E9823465D7F004AE71B /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9723465D7F004AE71B /* PersistenceHelper.swift */; };
 		50033E9A23465DC8004AE71B /* ImagePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9923465DC8004AE71B /* ImagePersistence.swift */; };
 		50033E9C23468919004AE71B /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9B23468919004AE71B /* AddVC.swift */; };
+		509A5DEF2347C56300C218BE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A5DEE2347C56300C218BE /* Protocol.swift */; };
+		509A5DF12347C8C500C218BE /* picture-vector-icon-no-image-260nw-1350441335.jpg.png in Resources */ = {isa = PBXBuildFile; fileRef = 509A5DF02347C8C500C218BE /* picture-vector-icon-no-image-260nw-1350441335.jpg.png */; };
 		50B57E79234655B100A88E65 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B57E78234655B100A88E65 /* PhotoViewCell.swift */; };
 		50FFB48E23465342008035F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFB48D23465342008035F2 /* AppDelegate.swift */; };
 		50FFB49023465342008035F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFB48F23465342008035F2 /* SceneDelegate.swift */; };
@@ -36,6 +38,8 @@
 		50033E9723465D7F004AE71B /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		50033E9923465DC8004AE71B /* ImagePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePersistence.swift; sourceTree = "<group>"; };
 		50033E9B23468919004AE71B /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
+		509A5DEE2347C56300C218BE /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		509A5DF02347C8C500C218BE /* picture-vector-icon-no-image-260nw-1350441335.jpg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture-vector-icon-no-image-260nw-1350441335.jpg.png"; sourceTree = "<group>"; };
 		50B57E78234655B100A88E65 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		50FFB48A23465342008035F2 /* Photo-Journal-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo-Journal-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FFB48D23465342008035F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		509A5DED2347C55400C218BE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				509A5DEE2347C56300C218BE /* Protocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		50FFB48123465342008035F2 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +101,7 @@
 		50FFB48C23465342008035F2 /* Photo-Journal-Project */ = {
 			isa = PBXGroup;
 			children = (
+				509A5DED2347C55400C218BE /* Protocol */,
 				50FFB4B4234653A0008035F2 /* CustomCell */,
 				50FFB4B323465397008035F2 /* DVC */,
 				50FFB4B223465391008035F2 /* VC */,
@@ -115,6 +128,7 @@
 			children = (
 				50FFB48F23465342008035F2 /* SceneDelegate.swift */,
 				50FFB49623465343008035F2 /* Assets.xcassets */,
+				509A5DF02347C8C500C218BE /* picture-vector-icon-no-image-260nw-1350441335.jpg.png */,
 				50FFB49823465343008035F2 /* LaunchScreen.storyboard */,
 				50FFB48D23465342008035F2 /* AppDelegate.swift */,
 			);
@@ -246,6 +260,7 @@
 				50FFB49A23465343008035F2 /* LaunchScreen.storyboard in Resources */,
 				50FFB49723465343008035F2 /* Assets.xcassets in Resources */,
 				50FFB49523465342008035F2 /* Main.storyboard in Resources */,
+				509A5DF12347C8C500C218BE /* picture-vector-icon-no-image-260nw-1350441335.jpg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +283,7 @@
 				50FFB49223465342008035F2 /* ViewController.swift in Sources */,
 				50033E9823465D7F004AE71B /* PersistenceHelper.swift in Sources */,
 				50FFB48E23465342008035F2 /* AppDelegate.swift in Sources */,
+				509A5DEF2347C56300C218BE /* Protocol.swift in Sources */,
 				50FFB49023465342008035F2 /* SceneDelegate.swift in Sources */,
 				50033E962346590D004AE71B /* PhotoModel.swift in Sources */,
 				50B57E79234655B100A88E65 /* PhotoViewCell.swift in Sources */,
