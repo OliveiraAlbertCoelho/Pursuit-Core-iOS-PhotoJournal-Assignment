@@ -203,6 +203,7 @@
                     <connections>
                         <outlet property="OrientationLabel" destination="t3q-NC-mbe" id="C0N-Hj-M6p"/>
                         <outlet property="darkModeLabel" destination="09e-SD-lcn" id="SZh-wX-PsM"/>
+                        <outlet property="scrollOut" destination="ERi-aj-08W" id="lIL-QO-nPL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lw-fA-qwl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

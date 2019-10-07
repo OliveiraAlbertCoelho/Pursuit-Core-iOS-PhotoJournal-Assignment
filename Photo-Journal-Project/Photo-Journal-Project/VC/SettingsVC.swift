@@ -9,39 +9,32 @@
 import UIKit
 
 class SettingsVC: UIViewController {
-    var scrollDirection = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    var selectedScroll = Int()
     weak var delegate:
        PhotoDelegate?
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBAction func darkModeSwitch(_ sender: UISwitch) {
         
     }
-    
-
-    @IBAction func scrollButton(_ sender: UISegmentedControl) {
-        if sender.isMomentary  {
-             scrollDirection = "vertical"
-        } else {
-            scrollDirection = "horizontal"
-        }
-           delegate?.passData(tag: scrollDirection)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        scrollOut.selectedSegmentIndex = selectedScroll
     }
     
+    @IBOutlet weak var scrollOut: UISegmentedControl!
+    
+    @IBAction func scrollButton(_ sender: UISegmentedControl) {
+        delegate?.passData(tag: sender.selectedSegmentIndex)
+        
+        }
     
     
-//    @IBAction func orientationSwitch(_ sender: UISwitch) {
-//        if sender.isOn {
-//            scrollDirection = "vertical"
-//        }else {
-//            scrollDirection = "horizontal"
-//        }
-//        delegate?.passData(tag: scrollDirection)
-//    }
     
+
     @IBOutlet weak var OrientationLabel: UILabel!
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -49,5 +42,5 @@ class SettingsVC: UIViewController {
     }
 }
 protocol PhotoDelegate: AnyObject{
-    func passData(tag: String)
+    func passData(tag: Int)
 }

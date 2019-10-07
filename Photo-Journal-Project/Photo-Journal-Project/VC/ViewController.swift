@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var scrollDirec = Int()
     var photos = [Photo](){
         didSet{
             photoCollection.reloadData()
@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let setVC = storyBoard.instantiateViewController(identifier: "settings") as! SettingsVC
         setVC.delegate = self
+        setVC.selectedScroll = scrollDirec
         setVC.modalPresentationStyle = .currentContext
         self.present(setVC, animated: true, completion: nil)
     }
@@ -31,13 +32,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         photoCollection.delegate = self
         photoCollection.dataSource = self
-       loadUserData()
+        loadUserData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUserData()
     }
-  private func loadUserData(){
+    private func loadUserData(){
         do {
             photos = try ImagePersistence.manager.getImage()
         }catch{
@@ -66,7 +67,7 @@ extension ViewController: ButtonFunction{
         let optionsMenu = UIAlertController.init(title: "Options", message: "Pick an Option", preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction.init(title: "Delete", style: .destructive) { (action) in
             do{
-            try ImagePersistence.manager.deleteImage(Int: tag)
+                try ImagePersistence.manager.deleteImage(Int: tag)
                 self.loadUserData()
             }catch{
                 print(error)
@@ -87,22 +88,28 @@ extension ViewController: ButtonFunction{
             self.present(sharingActivity, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
-        optionsMenu.addAction(deleteAction)
+       
         optionsMenu.addAction(editAction)
         optionsMenu.addAction(shareAction)
+         optionsMenu.addAction(deleteAction)
         optionsMenu.addAction(cancelAction)
+        
         present(optionsMenu, animated: true, completion: nil)
     }
 }
 extension ViewController: PhotoDelegate{
-    func passData(tag: String) {
+    func passData(tag: Int) {
+        scrollDirec = tag
         if let layout = photoCollection.collectionViewLayout as? UICollectionViewFlowLayout {
-            if tag == "vertical"{
-                layout.scrollDirection = .vertical
-            } else if tag == "horizontal"{
-                 layout.scrollDirection = .horizontal
+            switch tag {
+            case 0:
+                 layout.scrollDirection = .vertical
+            case 1:
+                 layout.scrollDirection = .vertical
+            default:
+                print("error")
             }
+        photoCollection.reloadData()
         }
-         photoCollection.reloadData()
     }
 }
