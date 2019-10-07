@@ -12,8 +12,11 @@ struct Photo: Codable {
     let userPost: String
     let date: String
     let image: Data
-//    dateFormat: String{
-//        let dateFormat = DateFormatter
-//        dateFormat.
-//    }
+   var dateFormat: String{
+       let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
+        let date = dateFormatter.date(from: self.date)
+    dateFormatter.dateFormat = "MMM dd,yyyy"
+    return  dateFormatter.string(from: date!)
+        }
 }

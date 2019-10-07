@@ -31,6 +31,7 @@ class AddVC: UIViewController {
         if editPicture != nil{
             loadEditInfo()
             type = "Edit"
+            saveButtonOut.isEnabled = true
         }
         else {
             type = "Save"
@@ -65,16 +66,13 @@ class AddVC: UIViewController {
     }
     
     func buttonCheckStatus(){
-        if type == "Edit"{
-             saveButtonOut.isEnabled = true
-            return
-        }else {
+        if type == "Edit"{return}
         if !userText.text.isEmpty && userText.text != placeholderText && photoPicked{
             saveButtonOut.isEnabled = true
         }else{
             saveButtonOut.isEnabled = false
+            }
         }
-        }}
     @IBAction func cameraAction(_ sender: UIBarButtonItem) {
         imagePickerViewController.sourceType = .camera
         imagePickerViewController.allowsEditing = true

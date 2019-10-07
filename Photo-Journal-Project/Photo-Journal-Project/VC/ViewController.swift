@@ -44,7 +44,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
         let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoViewCell
         let data = photos[indexPath.row]
         cell.labelName.text = data.userPost
-        cell.dateText.text = data.date
+        cell.dateText.text = data.dateFormat
         cell.delegate = self
         cell.buttonOut.tag = indexPath.row
         cell.photoCell.image = UIImage(data: data.image)
@@ -71,9 +71,15 @@ extension ViewController: ButtonFunction{
             editVC.modalPresentationStyle = .currentContext
             self.present(editVC, animated: true, completion: nil)
         }
+        let shareAction = UIAlertAction.init(title: "Share", style: .default) {
+            (action) in
+            let sharingActivity = UIActivityViewController(activityItems: [self.photos[tag].image], applicationActivities: nil)
+            self.present(sharingActivity, animated: true, completion: nil)
+        }
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         optionsMenu.addAction(deleteAction)
         optionsMenu.addAction(editAction)
+        optionsMenu.addAction(shareAction)
         optionsMenu.addAction(cancelAction)
         present(optionsMenu, animated: true, completion: nil)
     }
