@@ -8,5 +8,6 @@
 
 import Foundation
 
-protocol UpdateData{
+protocol ButtonFunction: AnyObject{
+       func showActionSheet(tag: Int)
 }

@@ -13,7 +13,11 @@ class PhotoViewCell: UICollectionViewCell {
     @IBOutlet weak var dateText: UILabel!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var buttonOut: UIButton!
+     weak var delegate: ButtonFunction?
     @IBAction func buttonAct(_ sender: UIButton) {
-    
+        
+          delegate?.showActionSheet(tag: sender.tag)
     }
+       
+    
 }

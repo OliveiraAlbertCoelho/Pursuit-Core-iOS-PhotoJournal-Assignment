@@ -19,4 +19,10 @@ struct ImagePersistence{
     func saveImage(info: Photo) throws{
           try persistenceHelper.save(newElement: info)
     }
+    func deleteImage(Int: Int) throws{
+        try persistenceHelper.delete(num: Int)
+    }
+    func editImage(Int: Int, newElement: Photo) throws{
+        try persistenceHelper.edit(num: Int, newElement: newElement)
+    }
 }

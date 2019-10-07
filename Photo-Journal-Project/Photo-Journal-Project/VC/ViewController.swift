@@ -45,10 +45,38 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
         let data = photos[indexPath.row]
         cell.labelName.text = data.userPost
         cell.dateText.text = data.date
-        cell.photoCell.image =  UIImage(data: data.image)
+        cell.delegate = self
+        cell.buttonOut.tag = indexPath.row
+        cell.photoCell.image = UIImage(data: data.image)
         return cell
     }
-    
-    
 }
-
+extension ViewController: ButtonFunction{
+    func showActionSheet(tag: Int) {
+        let optionsMenu = UIAlertController.init(title: "Options", message: "Pick an Option", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction.init(title: "Delete", style: .destructive) { (action) in
+            do{
+            try ImagePersistence.manager.deleteImage(Int: tag)
+                self.loadUserData()
+            }catch{
+                print(error)
+            }
+        }
+        let editAction = UIAlertAction.init(title: "Edit", style: .default) { (action) in
+            let pic =  self.photos[tag]
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let editVC = storyBoard.instantiateViewController(identifier: "AddVC") as! AddVC
+            editVC.editPicture = pic
+            editVC.photoIndex = tag
+            
+            self.present(editVC, animated: true, completion: nil)
+            
+            
+        }
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+        optionsMenu.addAction(deleteAction)
+        optionsMenu.addAction(editAction)
+        optionsMenu.addAction(cancelAction)
+        present(optionsMenu, animated: true, completion: nil)
+    }
+}
