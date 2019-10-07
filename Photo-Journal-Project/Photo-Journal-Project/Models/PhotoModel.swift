@@ -12,4 +12,8 @@ struct Photo: Codable {
     let userPost: String
     let date: String
     let image: Data
+//    dateFormat: String{
+//        let dateFormat = DateFormatter
+//        dateFormat.
+//    }
 }

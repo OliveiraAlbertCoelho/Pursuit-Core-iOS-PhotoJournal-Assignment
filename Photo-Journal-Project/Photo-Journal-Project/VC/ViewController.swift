@@ -67,11 +67,9 @@ extension ViewController: ButtonFunction{
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let editVC = storyBoard.instantiateViewController(identifier: "AddVC") as! AddVC
             editVC.editPicture = pic
-            editVC.photoIndex = tag
-            
+            editVC.userIndex = tag
+            editVC.modalPresentationStyle = .currentContext
             self.present(editVC, animated: true, completion: nil)
-            
-            
         }
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         optionsMenu.addAction(deleteAction)
