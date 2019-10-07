@@ -73,12 +73,7 @@ class AddVC: UIViewController {
             saveButtonOut.isEnabled = false
             }
         }
-    @IBAction func cameraAction(_ sender: UIBarButtonItem) {
-        imagePickerViewController.sourceType = .camera
-        imagePickerViewController.allowsEditing = true
-        imagePickerViewController.delegate = self
-        present(imagePickerViewController, animated: true)
-    }
+   
     
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {

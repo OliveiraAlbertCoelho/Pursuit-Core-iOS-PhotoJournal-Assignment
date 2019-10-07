@@ -15,6 +15,16 @@ class ViewController: UIViewController {
             photoCollection.reloadData()
         }
     }
+    
+    @IBAction func settingButton(_ sender: UIBarButtonItem) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let setVC = storyBoard.instantiateViewController(identifier: "settings") as! SettingsVC
+        setVC.delegate = self
+        setVC.modalPresentationStyle = .currentContext
+        self.present(setVC, animated: true, completion: nil)
+    }
+    
+    
     @IBOutlet weak var photoCollection: UICollectionView!
     
     override func viewDidLoad() {
@@ -73,7 +83,7 @@ extension ViewController: ButtonFunction{
         }
         let shareAction = UIAlertAction.init(title: "Share", style: .default) {
             (action) in
-            let sharingActivity = UIActivityViewController(activityItems: [self.photos[tag].image], applicationActivities: nil)
+            let sharingActivity = UIActivityViewController(activityItems: [self.photos[tag].image, self.photos[tag].userPost], applicationActivities: nil)
             self.present(sharingActivity, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
@@ -82,5 +92,17 @@ extension ViewController: ButtonFunction{
         optionsMenu.addAction(shareAction)
         optionsMenu.addAction(cancelAction)
         present(optionsMenu, animated: true, completion: nil)
+    }
+}
+extension ViewController: PhotoDelegate{
+    func passData(tag: String) {
+        if let layout = photoCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+            if tag == "vertical"{
+                layout.scrollDirection = .vertical
+            } else if tag == "horizontal"{
+                 layout.scrollDirection = .horizontal
+            }
+        }
+         photoCollection.reloadData()
     }
 }

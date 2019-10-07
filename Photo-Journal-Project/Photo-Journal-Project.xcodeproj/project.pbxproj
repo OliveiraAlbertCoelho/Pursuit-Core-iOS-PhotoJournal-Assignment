@@ -11,6 +11,7 @@
 		50033E9823465D7F004AE71B /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9723465D7F004AE71B /* PersistenceHelper.swift */; };
 		50033E9A23465DC8004AE71B /* ImagePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9923465DC8004AE71B /* ImagePersistence.swift */; };
 		50033E9C23468919004AE71B /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50033E9B23468919004AE71B /* AddVC.swift */; };
+		502C8374234BE795002EE860 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502C8373234BE795002EE860 /* SettingsVC.swift */; };
 		509A5DEF2347C56300C218BE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A5DEE2347C56300C218BE /* Protocol.swift */; };
 		50B57E79234655B100A88E65 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B57E78234655B100A88E65 /* PhotoViewCell.swift */; };
 		50FFB48E23465342008035F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFB48D23465342008035F2 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 		50033E9723465D7F004AE71B /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		50033E9923465DC8004AE71B /* ImagePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePersistence.swift; sourceTree = "<group>"; };
 		50033E9B23468919004AE71B /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
+		502C8373234BE795002EE860 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		509A5DEE2347C56300C218BE /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		50B57E78234655B100A88E65 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		50FFB48A23465342008035F2 /* Photo-Journal-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo-Journal-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +103,6 @@
 			children = (
 				509A5DED2347C55400C218BE /* Protocol */,
 				50FFB4B4234653A0008035F2 /* CustomCell */,
-				50FFB4B323465397008035F2 /* DVC */,
 				50FFB4B223465391008035F2 /* VC */,
 				50FFB4B12346538B008035F2 /* Models */,
 				50FFB4B023465386008035F2 /* Helpers */,
@@ -154,15 +155,9 @@
 			children = (
 				50FFB49123465342008035F2 /* ViewController.swift */,
 				50033E9B23468919004AE71B /* AddVC.swift */,
+				502C8373234BE795002EE860 /* SettingsVC.swift */,
 			);
 			path = VC;
-			sourceTree = "<group>";
-		};
-		50FFB4B323465397008035F2 /* DVC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DVC;
 			sourceTree = "<group>";
 		};
 		50FFB4B4234653A0008035F2 /* CustomCell */ = {
@@ -283,6 +278,7 @@
 				50FFB49023465342008035F2 /* SceneDelegate.swift in Sources */,
 				50033E962346590D004AE71B /* PhotoModel.swift in Sources */,
 				50B57E79234655B100A88E65 /* PhotoViewCell.swift in Sources */,
+				502C8374234BE795002EE860 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

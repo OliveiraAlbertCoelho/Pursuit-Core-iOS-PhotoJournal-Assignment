@@ -102,7 +102,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnD-hQ-J7B">
                                 <rect key="frame" x="0.0" y="764" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem width="185" style="plain" systemItem="fixedSpace" id="Vfx-Fe-afT"/>
+                                    <barButtonItem title="Settings" id="XsN-TJ-CIc">
+                                        <connections>
+                                            <action selector="settingButton:" destination="7De-N3-q12" id="eD0-n1-0M2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="97" style="plain" systemItem="fixedSpace" id="Vfx-Fe-afT"/>
                                     <barButtonItem systemItem="add" id="kf6-kA-3xf">
                                         <connections>
                                             <segue destination="cNm-6z-Gxb" kind="presentation" modalPresentationStyle="currentContext" id="6XE-Tp-SrY"/>
@@ -134,6 +139,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fai-6V-4G6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2939.130434782609" y="405.80357142857139"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="HNh-QB-TAd">
+            <objects>
+                <viewController storyboardIdentifier="settings" id="7bD-rM-5c4" customClass="SettingsVC" customModule="Photo_Journal_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X6K-l9-MEG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCD-T2-fwu">
+                                <rect key="frame" x="112" y="86" width="191" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DarkMode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09e-SD-lcn">
+                                <rect key="frame" x="147" y="174" width="120" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scroll Direction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3q-NC-mbe">
+                                <rect key="frame" x="146" y="317" width="120" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT6-oy-nuh">
+                                <rect key="frame" x="183" y="579" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="7bD-rM-5c4" eventType="touchUpInside" id="EVK-c8-TPB"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdP-1E-25H">
+                                <rect key="frame" x="183" y="226" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="darkModeSwitch:" destination="7bD-rM-5c4" eventType="valueChanged" id="Oph-wW-c3S"/>
+                                </connections>
+                            </switch>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-aj-08W">
+                                <rect key="frame" x="105" y="357" width="202" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Vertical"/>
+                                    <segment title="Horizontal"/>
+                                </segments>
+                                <connections>
+                                    <action selector="scrollButton:" destination="7bD-rM-5c4" eventType="valueChanged" id="oei-kT-uLY"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="AUo-Ub-UIm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Da-Nd-sJh"/>
+                    <connections>
+                        <outlet property="OrientationLabel" destination="t3q-NC-mbe" id="C0N-Hj-M6p"/>
+                        <outlet property="darkModeLabel" destination="09e-SD-lcn" id="SZh-wX-PsM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1lw-fA-qwl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869.5652173913045" y="739.95535714285711"/>
         </scene>
         <!--AddVC-->
         <scene sceneID="Bnl-LJ-GBR">
