@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let setVC = storyBoard.instantiateViewController(identifier: "settings") as! SettingsVC
         setVC.delegate = self
-        setVC.darkModeDelegate = self
+        setVC.darkDelegate = self
         setVC.darkModeInt = DarkModeId
         setVC.selectedScroll = scrollDirec
         setVC.modalPresentationStyle = .currentContext
@@ -102,23 +102,25 @@ extension ViewController: ButtonFunction{
 }
 extension ViewController: PhotoDelegate{
     func passData(tag: Int) {
-        scrollDirec = tag
-        if let layout = photoCollection.collectionViewLayout as? UICollectionViewFlowLayout {
-            if tag == 0 {
-                layout.scrollDirection = .vertical
-            }else { layout.scrollDirection = .horizontal
+        print(tag)
+          scrollDirec = tag
+          if let layout = photoCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+              if tag == 0 {
+                  layout.scrollDirection = .vertical
+              }else { layout.scrollDirection = .horizontal
+              }
+          }
+          photoCollection.reloadData()
+      }
+}
+extension ViewController: darkProtocol{
+        func passDarkModeData(tag: Int) {
+            print(tag)
+            DarkModeId = tag
+            if tag == 0{
+                view.backgroundColor = .white
+            }else {
+                view.backgroundColor = .black
             }
         }
-        photoCollection.reloadData()
-    }
-}
-extension ViewController: DarkModeDelegate{
-    func passDarkModeData(tag: Int) {
-        DarkModeId = tag
-        if tag == 0{
-            view.backgroundColor = .white
-        }else {
-            view.backgroundColor = .black
-        }
-    }
 }

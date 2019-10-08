@@ -9,17 +9,15 @@
 import UIKit
 
 class SettingsVC: UIViewController {
-    
     var selectedScroll = Int()
     var darkModeInt = Int()
-    weak var delegate:
-    PhotoDelegate?
-    weak var darkModeDelegate: PhotoDelegate?
+    weak var delegate: PhotoDelegate?
+    weak var darkDelegate: darkProtocol?
     @IBOutlet weak var scrollOut: UISegmentedControl!
-       @IBOutlet weak var OrientationLabel: UILabel!
+    @IBOutlet weak var OrientationLabel: UILabel!
     @IBOutlet weak var darkModeLabel: UILabel!
-   
     @IBOutlet weak var darkModeOut: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,26 +25,30 @@ class SettingsVC: UIViewController {
         super.viewWillAppear(true)
         darkModeOut.selectedSegmentIndex = darkModeInt
         scrollOut.selectedSegmentIndex = selectedScroll
+        changeBackGround()
     }
-    
+    func darkMode(){
+        view.backgroundColor = .black
+        darkModeLabel.textColor = .white
+        OrientationLabel.textColor = .white
+    }
+    func lightMode(){
+        view.backgroundColor = .white
+        darkModeLabel.textColor = .black
+        OrientationLabel.textColor = .black
+    }
     @IBAction func darkModeSegment(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            view.backgroundColor = .white
-            darkModeLabel.textColor = .black
-            OrientationLabel.textColor = .black
-            darkModeDelegate?.passData(tag: sender.selectedSegmentIndex)
-        case 1:
-            view.backgroundColor = .black
-            darkModeLabel.textColor = .white
-            OrientationLabel.textColor = .white
-            darkModeDelegate?.passData(tag: sender.selectedSegmentIndex)
-         default:
-            print("error")
+        darkDelegate?.passDarkModeData(tag: sender.selectedSegmentIndex)
+        darkModeInt = sender.selectedSegmentIndex
+        changeBackGround()
+    }
+    func changeBackGround(){
+        if darkModeInt == 0{
+            lightMode()
+        }else {
+          darkMode()
         }
-        
-       }
-   
+    }
     @IBAction func scrollButton(_ sender: UISegmentedControl) {
         delegate?.passData(tag: sender.selectedSegmentIndex)
     }

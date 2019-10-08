@@ -13,8 +13,10 @@ protocol ButtonFunction: AnyObject{
 }
 protocol PhotoDelegate: AnyObject{
     func passData(tag: Int)
+ 
 }
-
-protocol DarkModeDelegate: AnyObject {
+protocol darkProtocol: AnyObject {
     func passDarkModeData(tag: Int)
 }
+
+
