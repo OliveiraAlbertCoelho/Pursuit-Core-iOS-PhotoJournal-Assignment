@@ -57,11 +57,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoViewCell
         let data = photos[indexPath.row]
+        if DarkModeId == 1{
+            cell.backgroundColor = UIColor.black
+            cell.labelName.textColor = UIColor.white
+            cell.dateText.textColor = UIColor.white
+        }else {
+            cell.backgroundColor = UIColor.white
+            cell.labelName.textColor = UIColor.black
+            cell.dateText.textColor = UIColor.black
+        }
         cell.labelName.text = data.userPost
         cell.dateText.text = data.dateFormat
         cell.delegate = self
         cell.buttonOut.tag = indexPath.row
         cell.photoCell.image = UIImage(data: data.image)
+        
         return cell
     }
 }
@@ -103,24 +113,24 @@ extension ViewController: ButtonFunction{
 extension ViewController: PhotoDelegate{
     func passData(tag: Int) {
         print(tag)
-          scrollDirec = tag
-          if let layout = photoCollection.collectionViewLayout as? UICollectionViewFlowLayout {
-              if tag == 0 {
-                  layout.scrollDirection = .vertical
-              }else { layout.scrollDirection = .horizontal
-              }
-          }
-          photoCollection.reloadData()
-      }
-}
-extension ViewController: darkProtocol{
-        func passDarkModeData(tag: Int) {
-            print(tag)
-            DarkModeId = tag
-            if tag == 0{
-                view.backgroundColor = .white
-            }else {
-                view.backgroundColor = .black
+        scrollDirec = tag
+        if let layout = photoCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+            if tag == 0 {
+                layout.scrollDirection = .vertical
+            }else { layout.scrollDirection = .horizontal
             }
         }
+        photoCollection.reloadData()
+    }
+}
+extension ViewController: darkProtocol{
+    func passDarkModeData(tag: Int) {
+        DarkModeId = tag
+        if tag == 0{
+            view.backgroundColor = .white
+        }else {
+            view.backgroundColor = .black
+        }
+    }
+    
 }

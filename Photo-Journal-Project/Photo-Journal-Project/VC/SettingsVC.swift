@@ -45,9 +45,7 @@ class SettingsVC: UIViewController {
     func changeBackGround(){
         if darkModeInt == 0{
             lightMode()
-        }else {
-          darkMode()
-        }
+        }else {darkMode()}
     }
     @IBAction func scrollButton(_ sender: UISegmentedControl) {
         delegate?.passData(tag: sender.selectedSegmentIndex)
