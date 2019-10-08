@@ -14,10 +14,12 @@ class AddVC: UIViewController {
     var userIndex = Int()
     var placeholderText = "What's on your mind?"
     var photoPicked = false
+    private var tap: UITapGestureRecognizer!
     @IBOutlet weak var saveButtonOut: UIButton!
     @IBOutlet weak var userText: UITextView!
     @IBOutlet weak var userImage: UIImageView!
     private var imagePickerViewController: UIImagePickerController!
+    
     @IBAction func libraryAction(_ sender: UIBarButtonItem) {
         imagePickerViewController.sourceType = .photoLibrary
         present(imagePickerViewController, animated: true, completion: nil)
@@ -50,6 +52,7 @@ class AddVC: UIViewController {
         userImage.image = UIImage(data: editPicture!.image)
     }
     
+    
     @IBAction func saveButton(_ sender: UIButton) {
         guard let imageData = self.userImage.image?.jpegData(compressionQuality: 0.5)
             else {return}
@@ -71,9 +74,9 @@ class AddVC: UIViewController {
             saveButtonOut.isEnabled = true
         }else{
             saveButtonOut.isEnabled = false
-            }
         }
-   
+    }
+    
     
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {
