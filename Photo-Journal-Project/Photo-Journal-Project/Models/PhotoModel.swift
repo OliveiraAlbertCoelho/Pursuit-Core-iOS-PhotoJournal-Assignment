@@ -16,7 +16,7 @@ struct Photo: Codable {
        let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
         let date = dateFormatter.date(from: self.date)
-    dateFormatter.dateFormat = "MMM dd,yyyy"
+    dateFormatter.dateFormat = "MMM dd, yyyy  HH:MM a"
     return  dateFormatter.string(from: date!)
         }
 }
