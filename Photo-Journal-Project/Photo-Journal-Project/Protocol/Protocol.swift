@@ -11,3 +11,10 @@ import Foundation
 protocol ButtonFunction: AnyObject{
        func showActionSheet(tag: Int)
 }
+protocol PhotoDelegate: AnyObject{
+    func passData(tag: Int)
+}
+
+protocol DarkModeDelegate: AnyObject {
+    func passDarkModeData(tag: Int)
+}

@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var scrollDirec = Int()
+    var DarkModeId = Int()
     var photos = [Photo](){
         didSet{
             photoCollection.reloadData()
@@ -20,6 +21,8 @@ class ViewController: UIViewController {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let setVC = storyBoard.instantiateViewController(identifier: "settings") as! SettingsVC
         setVC.delegate = self
+        setVC.darkModeDelegate = self
+        setVC.darkModeInt = DarkModeId
         setVC.selectedScroll = scrollDirec
         setVC.modalPresentationStyle = .currentContext
         self.present(setVC, animated: true, completion: nil)
@@ -88,10 +91,10 @@ extension ViewController: ButtonFunction{
             self.present(sharingActivity, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
-       
+        
         optionsMenu.addAction(editAction)
         optionsMenu.addAction(shareAction)
-         optionsMenu.addAction(deleteAction)
+        optionsMenu.addAction(deleteAction)
         optionsMenu.addAction(cancelAction)
         
         present(optionsMenu, animated: true, completion: nil)
@@ -101,15 +104,21 @@ extension ViewController: PhotoDelegate{
     func passData(tag: Int) {
         scrollDirec = tag
         if let layout = photoCollection.collectionViewLayout as? UICollectionViewFlowLayout {
-            switch tag {
-            case 0:
-                 layout.scrollDirection = .vertical
-            case 1:
-                 layout.scrollDirection = .vertical
-            default:
-                print("error")
+            if tag == 0 {
+                layout.scrollDirection = .vertical
+            }else { layout.scrollDirection = .horizontal
             }
+        }
         photoCollection.reloadData()
+    }
+}
+extension ViewController: DarkModeDelegate{
+    func passDarkModeData(tag: Int) {
+        DarkModeId = tag
+        if tag == 0{
+            view.backgroundColor = .white
+        }else {
+            view.backgroundColor = .black
         }
     }
 }

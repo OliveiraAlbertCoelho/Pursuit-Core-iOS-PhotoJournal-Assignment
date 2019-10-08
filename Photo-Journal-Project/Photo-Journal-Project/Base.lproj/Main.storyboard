@@ -170,20 +170,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT6-oy-nuh">
-                                <rect key="frame" x="183" y="579" width="48" height="30"/>
+                                <rect key="frame" x="162" y="579" width="93" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="7bD-rM-5c4" eventType="touchUpInside" id="EVK-c8-TPB"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdP-1E-25H">
-                                <rect key="frame" x="183" y="226" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="darkModeSwitch:" destination="7bD-rM-5c4" eventType="valueChanged" id="Oph-wW-c3S"/>
-                                </connections>
-                            </switch>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-aj-08W">
                                 <rect key="frame" x="105" y="357" width="202" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -195,6 +188,17 @@
                                     <action selector="scrollButton:" destination="7bD-rM-5c4" eventType="valueChanged" id="oei-kT-uLY"/>
                                 </connections>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uWK-3V-vSh">
+                                <rect key="frame" x="105" y="229" width="202" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Dark"/>
+                                </segments>
+                                <connections>
+                                    <action selector="darkModeSegment:" destination="7bD-rM-5c4" eventType="valueChanged" id="O25-To-dr5"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="AUo-Ub-UIm"/>
@@ -203,6 +207,7 @@
                     <connections>
                         <outlet property="OrientationLabel" destination="t3q-NC-mbe" id="C0N-Hj-M6p"/>
                         <outlet property="darkModeLabel" destination="09e-SD-lcn" id="SZh-wX-PsM"/>
+                        <outlet property="darkModeOut" destination="uWK-3V-vSh" id="5Ld-w4-vsg"/>
                         <outlet property="scrollOut" destination="ERi-aj-08W" id="lIL-QO-nPL"/>
                     </connections>
                 </viewController>
