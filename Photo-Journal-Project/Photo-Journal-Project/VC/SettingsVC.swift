@@ -20,6 +20,7 @@ class SettingsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setModeFromUserDefaults()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -27,6 +28,12 @@ class SettingsVC: UIViewController {
         scrollOut.selectedSegmentIndex = selectedScroll
         changeBackGround()
     }
+    private func setModeFromUserDefaults(){
+           if let mode = UserDefaultWrapper.manager.getMode() {
+           changeBackGround()
+            darkModeOut.selectedSegmentIndex = mode
+           }
+       }
     func darkMode(){
         view.backgroundColor = .black
         darkModeLabel.textColor = .white
@@ -39,9 +46,11 @@ class SettingsVC: UIViewController {
     }
     @IBAction func darkModeSegment(_ sender: UISegmentedControl) {
         darkDelegate?.passDarkModeData(tag: sender.selectedSegmentIndex)
-        darkModeInt = sender.selectedSegmentIndex
+            darkModeInt = sender.selectedSegmentIndex
+        UserDefaultWrapper.manager.store(mode: darkModeInt)
         changeBackGround()
     }
+
     func changeBackGround(){
         if darkModeInt == 0{
             lightMode()

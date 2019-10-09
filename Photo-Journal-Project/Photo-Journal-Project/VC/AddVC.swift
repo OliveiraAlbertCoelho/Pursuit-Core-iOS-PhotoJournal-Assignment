@@ -82,6 +82,11 @@ class AddVC: UIViewController {
     @IBAction func cancelButtonAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func cameraAction(_ sender: UIBarButtonItem) {
+          imagePickerViewController.sourceType = .camera
+          imagePickerViewController.allowsEditing = true
+          imagePickerViewController.delegate = self
+        present(imagePickerViewController, animated: true)}
 }
 extension AddVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
